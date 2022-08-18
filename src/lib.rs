@@ -1,6 +1,7 @@
-pub mod sorting_algorithms; 
+pub mod sorting_algorithms;
+
 /*#[derive(Debug)]
-pub struct BST<T> {
+pub struct utilities<T> {
     pub root: Option<Node<T>>,
 }
 */
