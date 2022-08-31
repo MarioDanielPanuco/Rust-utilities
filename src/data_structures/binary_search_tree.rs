@@ -1,4 +1,5 @@
 #![allow(dead_code)]
+
 use std::fmt::Display;
 
 type TreeNode<T> = Option<Box<Node<T>>>;
@@ -20,13 +21,14 @@ trait BinaryTree<T> {
 trait BinarySearchTree<T: PartialOrd + Display>: BinaryTree<T> {
     fn insert(&mut self, value: T);
     fn remove(&mut self, value: T) -> bool;
+    fn remove_node(&mut self);
     fn search(&mut self, key: T) -> T;
     fn find_min(&self) -> T;
     fn find_max(&self) -> T;
 }
 
 impl<T: Display> Node<T> {
-    fn new (value: T) -> Self {
+    fn new(value: T) -> Self {
         Node {
             left: None,
             right: None,
@@ -36,11 +38,11 @@ impl<T: Display> Node<T> {
 }
 
 impl<T> BinaryTree<T> for Node<T>
-where T: PartialOrd + Display {
+    where T: PartialOrd + Display {
     fn pre_order(&mut self) {
         println!("{}", self.value);
         if let Some(ref mut left) = self.left {
-            left.pre_order(); 
+            left.pre_order();
         }
         if let Some(ref mut right) = self.right {
             right.pre_order();
@@ -71,8 +73,8 @@ where T: PartialOrd + Display {
     }
 }
 
-impl <T> BinarySearchTree<T> for Node<T>
-where T: PartialOrd + Display + Copy {
+impl<T> BinarySearchTree<T> for Node<T>
+    where T: PartialOrd + Display + Copy {
     fn insert(&mut self, value: T) {
         if self.value < value {
             if let Some(ref mut right) = self.right {
@@ -97,18 +99,13 @@ where T: PartialOrd + Display + Copy {
                 right.remove(value);
             }
         } else {
-            if let (Some(ref mut left), None) = (self.left, self.right) {
-                self = left;
-            } else if let (None, Some(ref mut right)) = (self.left, self.right) {
-                self = right;
-            } 
-
-        } 
+            self.remove_node();
+        }
         todo!()
     }
 
     fn search(&mut self, key: T) -> T {
-        todo!() 
+        todo!()
     }
 
     fn find_min(&self) -> T {
@@ -126,6 +123,18 @@ where T: PartialOrd + Display + Copy {
             self.value
         }
     }
+
+    fn remove_node(&mut self) {
+        todo!()
+/*        if let Some(node) = self {
+            if node.right.is_some() {
+                let mut = sptr = &mut node.right as *mut Self;
+                loop {
+                    let successor = unsafe { &mut *sptr };
+                }
+            }
+        }*/
+    }
 }
 
 #[cfg(test)]
@@ -140,7 +149,7 @@ mod tests {
         root.insert(5);
         root.insert(6);
         root.insert(1);
-        root 
+        root
     }
 
     #[test]
@@ -187,7 +196,6 @@ mod tests {
         let mut root = create_bst();
 
         println!("{}", root.remove(4));
-        
     }
 
     #[test]

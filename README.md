@@ -7,5 +7,9 @@ the Rust language.
 - BST 
 - Graph structure 
 - Common graph algorithms 
+  - DFS (TODO)
+  - BFS (TODO)
+  - Bell-Ford Algorithm (TODO)
 - Sorting 
   - Quick sort
+  - Merge sort (TODO)

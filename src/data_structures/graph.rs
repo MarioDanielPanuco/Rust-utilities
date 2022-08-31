@@ -4,7 +4,6 @@ pub type EdgeIndex = usize;
 pub struct Graph<T> {
     nodes: Vec<Node<T>>,
     edges: Vec<Edge<T>>,
-
 }
 
 #[derive(Debug, Clone)]
