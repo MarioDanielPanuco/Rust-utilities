@@ -1,8 +1,8 @@
 pub fn quick_sort<T: Ord>(arr: &mut [T]) {
-    _quick_sort(arr, 0, (arr.len() - 1) as isize);
+    _quick_sort(arr, 0, arr.len() - 1);
 }
 
-fn _quick_sort<T: Ord>(arr: &mut [T], low: isize, high: isize) {
+fn _quick_sort<T: Ord>(arr: &mut [T], low: usize, high: usize) {
     if low < high {
         let pivot = partition(arr, low, high);
         _quick_sort(arr, low, pivot - 1);
@@ -10,17 +10,17 @@ fn _quick_sort<T: Ord>(arr: &mut [T], low: isize, high: isize) {
     }
 }
 
-fn partition<T: Ord>(arr: &mut[T], low: isize, high: isize) -> isize {
+fn partition<T: Ord>(arr: &mut[T], low: usize, high: usize) -> usize {
     let pivot = high;
     let mut moving_index = low;
 
     for j in low..high {
         if arr[j as usize] <= arr[pivot as usize] {
-            arr.swap(moving_index as usize, j as usize);
+            arr.swap(moving_index, j);
             moving_index += 1;
         }
     }
-    arr.swap(moving_index as usize, pivot as usize);
+    arr.swap(moving_index, pivot);
     moving_index
 }
 
