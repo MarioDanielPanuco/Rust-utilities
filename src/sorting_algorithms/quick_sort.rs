@@ -15,7 +15,7 @@ fn partition<T: Ord>(arr: &mut[T], low: usize, high: usize) -> usize {
     let mut moving_index = low;
 
     for j in low..high {
-        if arr[j as usize] <= arr[pivot as usize] {
+        if arr[j] <= arr[pivot] {
             arr.swap(moving_index, j);
             moving_index += 1;
         }
