@@ -20,6 +20,7 @@ fn partition<T: Ord>(arr: &mut[T], low: usize, high: usize) -> usize {
             moving_index += 1;
         }
     }
+
     arr.swap(moving_index, pivot);
     moving_index
 }
