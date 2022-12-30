@@ -1,4 +1,4 @@
-pub fn merge_sort<T: Ord>(arr: &mut[T]) {
+pub fn merge_sort<T: Ord + Copy>(arr: &mut[T]) {
     let len = arr.len();
 
     if len > 1 {
@@ -10,12 +10,18 @@ pub fn merge_sort<T: Ord>(arr: &mut[T]) {
     }
 }
 
-fn _merge_sort<T: Ord>(arr: &mut [T], start: isize, end: isize) {
+fn merge<T: Ord + Copy>(arr: &mut[T], m: usize) {
+    let mut i = 1; 
+    let mut j = m + 1; 
 
-    todo!()
-}
+    let n = arr.len(); 
+    let mut copy_arr = arr.Copy(); 
 
-fn merge<T: Ord>(arr: &mut[T], m: usize) {
+    for k in 1..n {
+        if j > n {
+            
+        }
+    }
     todo!()
 }
 

@@ -125,6 +125,14 @@ impl<T> BinarySearchTree<T> for Node<T>
     }
 
     fn remove_node(&mut self) {
+        if let Some(node) = self { 
+            if node.right.is_some() {
+                let mut sptr = &mut node.right as *mut self; 
+                loop {
+                    let = iu
+                }
+            }
+        }
         todo!()
 /*        if let Some(node) = self {
             if node.right.is_some() {
