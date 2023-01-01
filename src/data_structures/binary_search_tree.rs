@@ -112,7 +112,8 @@ impl<T> BinarySearchTree<T> for Node<T>
         if let Some(ref left) = self.left {
             left.find_min()
         } else {
-            self.value
+            // self.value
+            todo!   ()
         }
     }
 
@@ -120,19 +121,20 @@ impl<T> BinarySearchTree<T> for Node<T>
         if let Some(ref right) = self.right {
             right.find_max()
         } else {
-            self.value
+            // self.value
+            todo!()
         }
     }
 
     fn remove_node(&mut self) {
-        if let Some(node) = self { 
-            if node.right.is_some() {
-                let mut sptr = &mut node.right as *mut self; 
-                loop {
-                    let = iu
-                }
-            }
-        }
+        // if let Some(node) = self { 
+        //     if node.right.is_some() {
+        //         let mut sptr = &mut node.right as *mut self; 
+        //         loop {
+        //             let = iu
+        //         }
+        //     }
+        // }
         todo!()
 /*        if let Some(node) = self {
             if node.right.is_some() {
